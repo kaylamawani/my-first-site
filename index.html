@@ -1,155 +1,1166 @@
 <!DOCTYPE html>
-<!--
-  ================================================================
-  READ THIS BEFORE YOU PASTE ANYTHING
-
-  When Gemini gives you a page, you do NOT paste it into a part of
-  this file. You replace the entire file.
-
-  Click into the editor, press Ctrl+A (Cmd+A on Mac), press Delete,
-  then paste. Everything here is meant to be thrown away.
-
-  Do that only AFTER your live link works. Get the link first.
-  ================================================================
--->
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>My first site</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Unbounded:wght@600;800&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --navy: #0d1d30;
-    --card: #142a44;
-    --line: #27466a;
-    --aqua: #6de1d7;
-    --text: #ffffff;
-    --muted: #94a9bf;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--navy);
-    color: var(--text);
-    font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
-    line-height: 1.6;
-    display: flex;
-    justify-content: center;
-    padding: 6vh 20px;
-  }
-  main { width: 100%; max-width: 640px; }
-  .badge {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--aqua);
-    margin-bottom: 18px;
-  }
-  h1 {
-    font-family: "Unbounded", "Manrope", sans-serif;
-    font-weight: 800;
-    font-size: clamp(38px, 9vw, 68px);
-    letter-spacing: -0.05em;
-    line-height: 1.02;
-    margin: 0 0 8px;
-  }
-  .name {
-    font-family: "Unbounded", "Manrope", sans-serif;
-    font-weight: 600;
-    font-size: clamp(18px, 4vw, 24px);
-    letter-spacing: -0.04em;
-    color: var(--aqua);
-    margin: 0 0 24px;
-  }
-  p.lead { font-size: 18px; color: var(--muted); margin: 0 0 34px; }
-  .card {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 26px 28px;
-    margin-bottom: 18px;
-  }
-  .card h2 {
-    font-family: "Unbounded", "Manrope", sans-serif;
-    font-weight: 600;
-    font-size: 15px;
-    letter-spacing: -0.03em;
-    text-transform: uppercase;
-    color: var(--aqua);
-    margin: 0 0 16px;
-  }
-  ol { margin: 0; padding-left: 20px; }
-  li { margin-bottom: 12px; color: var(--muted); }
-  li:last-child { margin-bottom: 0; }
-  li b { color: var(--text); font-weight: 700; }
-  code {
-    font-family: ui-monospace, "SF Mono", Consolas, monospace;
-    font-size: 0.92em;
-    background: #0a1727;
-    border: 1px solid var(--line);
-    border-radius: 5px;
-    padding: 1px 6px;
-    color: var(--aqua);
-  }
-  a { color: var(--aqua); }
-  footer {
-    margin-top: 30px;
-    font-size: 14px;
-    color: #6e839a;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GALACTIC VIBE CODING HACKATHON // MAY THE PROMPT BE WITH YOU</title>
+  
+  <!-- Single Google Font Import: Orbitron & Rajdhani -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. CORE DESIGN TOKENS & VARIABLES
+       ========================================================================== */
+    :root {
+      /* Sith / Default Dark Theme */
+      --bg-dark: #05070b;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --bg-card-border: rgba(0, 240, 255, 0.2);
+      
+      --text-main: #e2e8f0;
+      --text-muted: #94a3b8;
+      
+      --accent-cyan: #00f0ff;
+      --accent-red: #ff0055;
+      --accent-gold: #ffe81f; /* Star Wars Yellow */
+      --accent-green: #00ff66;
+      --accent-purple: #a855f7;
+
+      --font-title: 'Orbitron', sans-serif;
+      --font-mono: 'Share Tech Mono', monospace;
+      --font-body: 'Rajdhani', sans-serif;
+
+      --glow-cyan: 0 0 15px rgba(0, 240, 255, 0.5);
+      --glow-red: 0 0 15px rgba(ff, 0, 85, 0.5);
+      --glow-gold: 0 0 15px rgba(255, 232, 31, 0.5);
+    }
+
+    [data-theme="jedi"] {
+      --bg-dark: #f0f4f8;
+      --bg-card: rgba(255, 255, 255, 0.85);
+      --bg-card-border: rgba(0, 150, 255, 0.3);
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --accent-cyan: #0077ff;
+      --accent-red: #d97706;
+      --accent-gold: #d97706;
+      --accent-green: #059669;
+      --glow-cyan: 0 0 10px rgba(0, 119, 255, 0.3);
+    }
+
+    /* Reset & Base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.5;
+      overflow-x: hidden;
+      min-height: 100vh;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    /* Starfield Canvas Background */
+    #starfield {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Scanline effect overlay */
+    .scanlines {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0) 50%,
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0.3)
+      );
+      background-size: 100% 4px;
+      z-index: 999;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    /* Typography Utilities */
+    h1, h2, h3, h4 {
+      font-family: var(--font-title);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .gold-text { color: var(--accent-gold); text-shadow: var(--glow-gold); }
+    .cyan-text { color: var(--accent-cyan); text-shadow: var(--glow-cyan); }
+    .red-text  { color: var(--accent-red);  text-shadow: var(--glow-red); }
+
+    /* ==========================================================================
+       2. HEADER & NAVIGATION
+       ========================================================================== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5, 7, 11, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--bg-card-border);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-title);
+      font-weight: 900;
+      font-size: 1.2rem;
+      color: var(--accent-gold);
+      text-decoration: none;
+    }
+
+    .logo-badge {
+      background: var(--accent-red);
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      animation: pulse 2s infinite;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-family: var(--font-title);
+      font-size: 0.85rem;
+      transition: color 0.2s, text-shadow 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--accent-cyan);
+      text-shadow: var(--glow-cyan);
+    }
+
+    .theme-toggle-btn {
+      background: transparent;
+      border: 1px solid var(--accent-cyan);
+      color: var(--accent-cyan);
+      padding: 0.4rem 0.8rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+
+    .theme-toggle-btn:hover {
+      background: var(--accent-cyan);
+      color: var(--bg-dark);
+      box-shadow: var(--glow-cyan);
+    }
+
+    /* ==========================================================================
+       3. HERO / OPENING CRAWL SECTION
+       ========================================================================== */
+    .hero-container {
+      position: relative;
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .crawl-trigger-btn {
+      background: linear-gradient(45deg, var(--accent-gold), #ffaa00);
+      color: #000;
+      font-family: var(--font-title);
+      font-weight: 700;
+      padding: 0.8rem 1.6rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-bottom: 2rem;
+      box-shadow: var(--glow-gold);
+      transition: transform 0.2s;
+    }
+
+    .crawl-trigger-btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal Overlay for Star Wars Crawl */
+    .crawl-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+      z-index: 1000;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      perspective: 400px;
+      overflow: hidden;
+    }
+
+    .crawl-modal.active {
+      display: flex;
+    }
+
+    .crawl-content {
+      position: absolute;
+      top: 100%;
+      width: 80%;
+      max-width: 700px;
+      color: var(--accent-gold);
+      font-family: var(--font-title);
+      font-weight: 700;
+      text-align: justify;
+      font-size: 1.8rem;
+      line-height: 1.6;
+      transform: rotateX(25deg) translateZ(0);
+      animation: crawlAnimation 40s linear forwards;
+    }
+
+    .crawl-content h1 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .crawl-content h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .close-crawl {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-family: var(--font-title);
+      font-size: 1rem;
+      cursor: pointer;
+      z-index: 1001;
+      border: 1px solid #fff;
+      padding: 0.5rem 1rem;
+    }
+
+    @keyframes crawlAnimation {
+      0% { top: 100%; opacity: 1; }
+      95% { opacity: 1; }
+      100% { top: -180%; opacity: 0; }
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 2.5rem auto;
+    }
+
+    .timer-container {
+      display: inline-flex;
+      gap: 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      padding: 1.5rem 2.5rem;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .timer-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .timer-num {
+      font-family: var(--font-mono);
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--accent-cyan);
+    }
+
+    .timer-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       4. MAIN CONTENT LAYOUT
+       ========================================================================== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--bg-card-border), transparent);
+    }
+
+    /* GRID LAYOUT FOR VIBE EDITOR & SIDEBAR */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    @media (max-width: 968px) {
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ==========================================================================
+       5. VIBE CODE EDITOR & GENERATOR (Interactive Terminal)
+       ========================================================================== */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .editor-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .editor-title {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--accent-cyan);
+    }
+
+    .prompt-box {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .prompt-input {
+      flex: 1;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 4px;
+      color: var(--text-main);
+      padding: 0.8rem 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    .prompt-input:focus {
+      border-color: var(--accent-cyan);
+      box-shadow: var(--glow-cyan);
+    }
+
+    .btn {
+      background: var(--accent-cyan);
+      color: #000;
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: 0.85rem;
+      border: none;
+      padding: 0.8rem 1.2rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn:hover {
+      box-shadow: var(--glow-cyan);
+      transform: translateY(-2px);
+    }
+
+    .btn-red {
+      background: var(--accent-red);
+      color: #fff;
+    }
+    .btn-red:hover { box-shadow: var(--glow-red); }
+
+    .btn-gold {
+      background: var(--accent-gold);
+      color: #000;
+    }
+    .btn-gold:hover { box-shadow: var(--glow-gold); }
+
+    /* Simulated Code Screen */
+    .terminal-window {
+      background: #020408;
+      border-radius: 6px;
+      border: 1px solid rgba(0, 240, 255, 0.2);
+      padding: 1.2rem;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--accent-green);
+      min-height: 250px;
+      max-height: 350px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      position: relative;
+    }
+
+    .terminal-window::before {
+      content: "STATUS: READY TO PARSE HOLO-PROMPT...";
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      opacity: 0.5;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 15px;
+      background: var(--accent-green);
+      animation: blink 1s infinite;
+      vertical-align: middle;
+    }
+
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+    .synth-bar {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .vibe-meter {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+    }
+
+    .meter-bar {
+      width: 120px;
+      height: 10px;
+      background: #111;
+      border-radius: 5px;
+      overflow: hidden;
+      border: 1px solid #333;
+    }
+
+    .meter-fill {
+      height: 100%;
+      width: 85%;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+      transition: width 0.3s ease;
+    }
+
+    /* ==========================================================================
+       6. LEADERBOARD & FACTION SELECTION
+       ========================================================================== */
+    .faction-selector {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .faction-btn {
+      flex: 1;
+      padding: 0.6rem;
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--bg-card-border);
+      color: var(--text-muted);
+      font-family: var(--font-title);
+      font-size: 0.8rem;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+
+    .faction-btn.active.sith {
+      background: rgba(255, 0, 85, 0.2);
+      border-color: var(--accent-red);
+      color: var(--accent-red);
+      box-shadow: var(--glow-red);
+    }
+
+    .faction-btn.active.jedi {
+      background: rgba(0, 240, 255, 0.2);
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+      box-shadow: var(--glow-cyan);
+    }
+
+    .leaderboard-list {
+      list-style: none;
+    }
+
+    .leaderboard-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+    }
+
+    .leaderboard-item:last-child {
+      border-bottom: none;
+    }
+
+    .rank {
+      font-weight: bold;
+      width: 25px;
+      color: var(--accent-gold);
+    }
+
+    .dev-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      margin: 0 10px;
+    }
+
+    .dev-name {
+      font-weight: bold;
+      color: var(--text-main);
+    }
+
+    .dev-ship {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .score {
+      color: var(--accent-cyan);
+      font-weight: bold;
+    }
+
+    /* ==========================================================================
+       7. TRACKS & CHALLENGES GRID
+       ========================================================================== */
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .track-card {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .track-card:hover {
+      transform: translateY(-50px);
+      transform: translateY(-5px);
+      border-color: var(--accent-cyan);
+    }
+
+    .track-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .track-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .track-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .track-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 4px;
+      color: var(--accent-gold);
+    }
+
+    /* ==========================================================================
+       8. SOUND & INTERACTION EFFECTS
+       ========================================================================== */
+    .sound-controls {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 90;
+      display: flex;
+      gap: 10px;
+    }
+
+    .sound-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      color: var(--text-main);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      transition: all 0.2s;
+    }
+
+    .sound-btn:hover {
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--bg-card-border);
+      padding: 2rem;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      background: rgba(0,0,0,0.4);
+    }
+
+    /* Animations */
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.4; }
+      100% { opacity: 1; }
+    }
+
+  </style>
 </head>
 <body>
-<main>
 
-  <span class="badge">Cal Poly Vibe Coding &middot; Session 01</span>
+  <!-- Background Canvas -->
+  <canvas id="starfield"></canvas>
+  <div class="scanlines"></div>
 
-  <h1>It&rsquo;s live.</h1>
+  <!-- Header Navigation -->
+  <header>
+    <a href="#" class="logo">
+      <span>GALACTIC//VIBE</span>
+      <span class="logo-badge">LIVE HACKATHON</span>
+    </a>
 
-  <!-- Step 5: change the name below to yours, then commit. -->
-  <p class="name">Built by Kayla</p>
+    <nav>
+      <a href="#editor">Holo-Editor</a>
+      <a href="#leaderboard">Leaderboard</a>
+      <a href="#tracks">Tracks</a>
+      <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()">THEME: SITH</button>
+    </nav>
+  </header>
 
-  <p class="lead">
-    This page is on the internet. Anyone you send this link to can open it,
-    on any device, right now. You made that happen in about five minutes.
-  </p>
+  <!-- Hero Section -->
+  <section class="hero-container">
+    <button class="crawl-trigger-btn" onclick="openCrawl()">INITIATE OPENING CRAWL ▶</button>
+    
+    <h1 class="hero-title">MAY THE <span class="gold-text">PROMPT</span> BE WITH YOU</h1>
+    <p class="hero-subtitle">
+      Welcome to the sector's premiere LLM Vibe-Coding Hackathon. Construct full-stack starship systems, droid AI routines, and light-saber telemetry purely through natural force-prompts.
+    </p>
 
-  <div class="card">
-    <h2>Three things, in this order</h2>
-    <ol>
-      <li><b>Put your name on it.</b> Edit <code>index.html</code>, change
-        YOUR NAME HERE above, commit, refresh this page.</li>
-      <li><b>Submit this link.</b> Go to
-        <a href="https://www.calpolyvibecoding.com/">calpolyvibecoding.com</a>,
-        make an account, and paste this URL in. That is how you get counted,
-        and how Claude seats get assigned.</li>
-      <li><b>Then build.</b> Open Gemini, get a page, and replace this entire
-        file with it.</li>
-    </ol>
+    <!-- Countdown Timer -->
+    <div class="timer-container">
+      <div class="timer-box">
+        <span class="timer-num" id="hours">14</span>
+        <span class="timer-label">Hours</span>
+      </div>
+      <div class="timer-box">
+        <span class="timer-num" id="minutes">32</span>
+        <span class="timer-label">Minutes</span>
+      </div>
+      <div class="timer-box">
+        <span class="timer-num" id="seconds">08</span>
+        <span class="timer-label">Seconds</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Star Wars Crawl Modal -->
+  <div class="crawl-modal" id="crawlModal">
+    <button class="close-crawl" onclick="closeCrawl()">SKIP CRAWL [ESC]</button>
+    <div class="crawl-content">
+      <h1>EPISODE VIBE</h1>
+      <h2>THE PROMPT AWAKENS</h2>
+      <p>
+        It is a time of turmoil in the developer galaxy. Legacy coders, bound by manual syntax and outdated frameworks, struggle to maintain control over starship operating systems.
+      </p>
+      <br>
+      <p>
+        Striking from a hidden base, a new group of Vibe Coders has risen. Empowered by LLM neural cores, they channel raw prompts to generate entire applications in milliseconds.
+      </p>
+      <br>
+      <p>
+        As the Galactic Hackathon commences, developers from all systems gather to test their vibe alignment and build the ultimate software empire...
+      </p>
+    </div>
   </div>
 
-  <div class="card">
-    <h2>How to replace this page</h2>
-    <ol>
-      <li>Copy what Gemini gives you with the <b>copy button</b> on the code
-        block. Do not click and drag.</li>
-      <li>Open <code>index.html</code> here and click the pencil icon.</li>
-      <li><b>Ctrl+A</b> (<b>Cmd+A</b> on Mac), then <b>Delete</b>. All of it.
-        Yes, really.</li>
-      <li>Paste, commit, refresh.</li>
-    </ol>
+  <!-- Main Content Area -->
+  <div class="container">
+    
+    <!-- Dashboard Grid -->
+    <div class="dashboard-grid" id="editor">
+      
+      <!-- Interactive Terminal / Vibe Code Synthesizer -->
+      <div class="card">
+        <div class="editor-header">
+          <span class="editor-title">HOLO-PROMPT TERMINAL v4.2</span>
+          <span class="cyan-text" style="font-size: 0.8rem;">● AI NEURAL LINK: ACTIVE</span>
+        </div>
+
+        <div class="prompt-box">
+          <input type="text" id="promptInput" class="prompt-input" placeholder="e.g., 'Build an automated targeting system for an X-Wing using Canvas API...'">
+          <button class="btn btn-gold" onclick="generateVibeCode()">SYNTHESIZE</button>
+        </div>
+
+        <div class="terminal-window" id="terminalOutput">
+          <span style="color: #666;">// Enter a prompt above or click 'Randomize Prompt' to vibe-code...</span>
+        </div>
+
+        <div class="synth-bar">
+          <div class="vibe-meter">
+            <span>FORCE VIBE:</span>
+            <div class="meter-bar">
+              <div class="meter-fill" id="meterFill"></div>
+            </div>
+            <span id="vibePercent" class="cyan-text">85%</span>
+          </div>
+          
+          <button class="btn" style="font-size: 0.75rem; padding: 0.4rem 0.8rem;" onclick="generateRandomPrompt()">🎲 Random Prompt</button>
+        </div>
+      </div>
+
+      <!-- Faction Leaderboard -->
+      <div class="card" id="leaderboard">
+        <div class="editor-header">
+          <span class="editor-title">GALACTIC LEADERBOARD</span>
+          <span class="red-text" style="font-size: 0.8rem;">LIVE FEED</span>
+        </div>
+
+        <div class="faction-selector">
+          <button class="faction-btn active sith" id="sithBtn" onclick="switchFaction('sith')">SITH ORDER</button>
+          <button class="faction-btn jedi" id="jediBtn" onclick="switchFaction('jedi')">JEDI COUNCIL</button>
+        </div>
+
+        <ul class="leaderboard-list" id="leaderboardList">
+          <!-- Dynamic Leaderboard Items -->
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Hackathon Tracks Section -->
+    <h2 class="section-title" id="tracks"><span class="cyan-text">02.</span> COMPETITION TRACKS</h2>
+    
+    <div class="tracks-grid">
+      <div class="track-card">
+        <div class="track-icon">🌌</div>
+        <h3 class="track-title">Imperial AI Systems</h3>
+        <p class="track-desc">Design autonomous defense arrays, Death Star maintenance routines, or automated stormtrooper accuracy telemetry.</p>
+        <span class="track-tag">PRIZE: 50,000 CREDITS</span>
+      </div>
+
+      <div class="track-card">
+        <div class="track-icon">⚔️</div>
+        <h3 class="track-title">Saber Physics & WebGL</h3>
+        <p class="track-desc">Construct browser-based lightsaber collision engines using webGL, Canvas, and Web Audio API synthesizer models.</p>
+        <span class="track-tag">PRIZE: KYBER CRYSTAL</span>
+      </div>
+
+      <div class="track-card">
+        <div class="track-icon">🤖</div>
+        <h3 class="track-title">Astromech UI/UX</h3>
+        <p class="track-desc">Vibe-code high-speed HUD interfaces for R2 droids, Starfighter dashboards, and hyperdrive navigation computers.</p>
+
+        <span class="track-tag">PRIZE: 35,000 CREDITS</span>
+      </div>
+    </div>
+
   </div>
 
+  <!-- Audio Controls Floating Button -->
+  <div class="sound-controls">
+    <button class="sound-btn" title="Toggle Saber SFX" onclick="playSaberSound()">⚡</button>
+  </div>
+
+  <!-- Footer -->
   <footer>
-    Nothing on this page is precious. It exists so the link has something to
-    show before you have something of your own.
+    <p>GALACTIC VIBE CODING HACKATHON // AUTHORIZED BY THE GALACTIC EMPIRE & REBEL ALLIANCE</p>
+    <p style="margin-top: 5px; color: #555;">NO FRAMEWORKS WERE HARMED IN THE MAKING OF THIS HTML FILE.</p>
   </footer>
 
-</main>
+  <!-- ==========================================================================
+     JAVASCRIPT: LOGIC, ANIMATIONS, AUDIO SYNTHESIZER
+     ========================================================================== -->
+  <script>
+    /* ------------------------------------------------------------------------
+       1. STARFIELD CANVAS ANIMATION
+       ------------------------------------------------------------------------ */
+    const canvas = document.getElementById('starfield');
+    const ctx = canvas.getContext('2d');
+
+    let stars = [];
+    const numStars = 200;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Star {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = (Math.random() - 0.5) * canvas.width * 2;
+        this.y = (Math.random() - 0.5) * canvas.height * 2;
+        this.z = Math.random() * canvas.width;
+        this.size = Math.random() * 1.5;
+      }
+      update() {
+        this.z -= 1.5; // Star movement speed
+        if (this.z <= 0) {
+          this.reset();
+          this.z = canvas.width;
+        }
+      }
+      draw() {
+        const sx = (this.x / this.z) * (canvas.width / 2) + canvas.width / 2;
+        const sy = (this.y / this.z) * (canvas.height / 2) + canvas.height / 2;
+        const radius = (1 - this.z / canvas.width) * this.size * 2;
+
+        if (sx >= 0 && sx <= canvas.width && sy >= 0 && sy <= canvas.height) {
+          ctx.beginPath();
+          ctx.arc(sx, sy, Math.max(0, radius), 0, Math.PI * 2);
+          ctx.fillStyle = "#ffffff";
+          ctx.fill();
+        }
+      }
+    }
+
+    for (let i = 0; i < numStars; i++) {
+      stars.push(new Star());
+    }
+
+    function animateStars() {
+      ctx.fillStyle = 'rgba(5, 7, 11, 0.3)'; // Trail effect
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      stars.forEach(star => {
+        star.update();
+        star.draw();
+      });
+
+      requestAnimationFrame(animateStars);
+    }
+    animateStars();
+
+    /* ------------------------------------------------------------------------
+       2. COUNTDOWN TIMER
+       ------------------------------------------------------------------------ */
+    let totalSeconds = (14 * 3600) + (32 * 60) + 8;
+    
+    setInterval(() => {
+      if (totalSeconds > 0) totalSeconds--;
+      
+      const h = Math.floor(totalSeconds / 3600);
+      const m = Math.floor((totalSeconds % 3600) / 60);
+      const s = totalSeconds % 60;
+
+      document.getElementById('hours').innerText = String(h).padStart(2, '0');
+      document.getElementById('minutes').innerText = String(m).padStart(2, '0');
+      document.getElementById('seconds').innerText = String(s).padStart(2, '0');
+    }, 1000);
+
+    /* ------------------------------------------------------------------------
+       3. STAR WARS CRAWL MODAL
+       ------------------------------------------------------------------------ */
+    function openCrawl() {
+      document.getElementById('crawlModal').classList.add('active');
+      playSaberSound();
+    }
+
+    function closeCrawl() {
+      document.getElementById('crawlModal').classList.remove('active');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === "Escape") closeCrawl();
+    });
+
+    /* ------------------------------------------------------------------------
+       4. THEME TOGGLE (SITH / JEDI)
+       ------------------------------------------------------------------------ */
+    let currentTheme = 'sith';
+
+    function toggleTheme() {
+      const body = document.body;
+      const btn = document.getElementById('themeToggleBtn');
+
+      if (currentTheme === 'sith') {
+        body.setAttribute('data-theme', 'jedi');
+        btn.innerText = "THEME: JEDI";
+        btn.style.borderColor = "var(--accent-cyan)";
+        currentTheme = 'jedi';
+      } else {
+        body.removeAttribute('data-theme');
+        btn.innerText = "THEME: SITH";
+        btn.style.borderColor = "var(--accent-red)";
+        currentTheme = 'sith';
+      }
+      playSaberSound();
+    }
+
+    /* ------------------------------------------------------------------------
+       5. LEADERBOARD FACTION DATA & SWITCHING
+       ------------------------------------------------------------------------ */
+    const leaderboardData = {
+      sith: [
+        { rank: 1, name: "Darth_Vibe", ship: "TIE Advanced x1", score: "9,940 pts" },
+        { rank: 2, name: "KyloPrompt", ship: "Silencer OS", score: "8,810 pts" },
+        { rank: 3, name: "Maul_Dev", ship: "Scimitar JS", score: "7,650 pts" },
+        { rank: 4, name: "Tarkin_Syntax", ship: "DeathStar API", score: "6,900 pts" }
+      ],
+      jedi: [
+        { rank: 1, name: "Master_Yoda_JS", ship: "Dagobah Core", score: "9,990 pts" },
+        { rank: 2, name: "Luke_Promptwalker", ship: "Red Five UI", score: "9,200 pts" },
+        { rank: 3, name: "ObiOne_Kernel", ship: "Kenobi-Linux", score: "8,450 pts" },
+        { rank: 4, name: "Ahsoka_Code", ship: "Tano State", score: "7,800 pts" }
+      ]
+    };
+
+    function renderLeaderboard(faction) {
+      const list = document.getElementById('leaderboardList');
+      list.innerHTML = '';
+
+      leaderboardData[faction].forEach(item => {
+        const li = document.createElement('li');
+        li.className = 'leaderboard-item';
+        li.innerHTML = `
+          <span class="rank">#${item.rank}</span>
+          <div class="dev-info">
+            <span class="dev-name">${item.name}</span>
+            <span class="dev-ship">${item.ship}</span>
+          </div>
+          <span class="score">${item.score}</span>
+        `;
+        list.appendChild(li);
+      });
+    }
+
+    function switchFaction(faction) {
+      document.getElementById('sithBtn').className = `faction-btn ${faction === 'sith' ? 'active sith' : ''}`;
+      document.getElementById('jediBtn').className = `faction-btn ${faction === 'jedi' ? 'active jedi' : ''}`;
+      renderLeaderboard(faction);
+      playSaberSound();
+    }
+
+    // Initial render
+    renderLeaderboard('sith');
+
+    /* ------------------------------------------------------------------------
+       6. VIBE CODE GENERATOR (TYPING SIMULATION)
+       ------------------------------------------------------------------------ */
+    const samplePrompts = [
+      "Build a real-time targeting computer HUD for an X-Wing starfighter.",
+      "Write an automated lightsaber crystal tuning algorithm in Rust.",
+      "Synthesize an R2-D2 translate script for WebAssembly.",
+      "Construct a Death Star thermal exhaust port deflection shield API."
+    ];
+
+    const codeSnippets = [
+      `// HOLO-GENERATED TARGETING HUD
+function lockTarget(shipId) {
+  const target = GalacticRadar.scan(shipId);
+  if (target.isEmpire) {
+    Canvas.drawRedReticule(target.vector);
+    ProtonTorpedo.primeSystem();
+    return "TARGET LOCKED: " + target.name;
+  }
+}`,
+      `// KYBER CRYSTAL FREQUENCY TUNER
+fn tune_saber(crystal: &mut Kyber) -> Result<Hz, SaberError> {
+    let harmonic = crystal.read_resonance()?;
+    if harmonic != JEDI_FREQUENCY {
+        crystal.adjust_plasma_blade(0.0042);
+    }
+    Ok(crystal.current_output())
+}`,
+      `// R2-D2 BEEP-BOOP TRANSLATOR
+const translateBeep = (freqArray) => {
+  return freqArray
+    .map(freq => String.fromCharCode(freq / 12))
+    .join('') + ' [HAPPY ASTROMECH CHIRP]';
+};`
+    ];
+
+    function generateRandomPrompt() {
+      const p = samplePrompts[Math.floor(Math.random() * samplePrompts.length)];
+      document.getElementById('promptInput').value = p;
+    }
+
+    function generateVibeCode() {
+      const input = document.getElementById('promptInput').value;
+      const terminal = document.getElementById('terminalOutput');
+      if (!input) return;
+
+      playBeepSound();
+
+      terminal.innerHTML = `> PARSING HOLO-PROMPT: "${input}"\n> CONNECTING TO FORCE-NEURAL NETWORK...\n\n`;
+      
+      const snippet = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
+      let i = 0;
+
+      const timer = setInterval(() => {
+        if (i < snippet.length) {
+          terminal.innerHTML += snippet.charAt(i);
+          i++;
+          terminal.scrollTop = terminal.scrollHeight;
+        } else {
+          clearInterval(timer);
+          terminal.innerHTML += `\n\n<span style="color: var(--accent-gold)">// VIBE SYNTHESIS COMPLETE. READY FOR DEPLOYMENT.</span>`;
+          
+          // Randomize vibe meter
+          const newVibe = Math.floor(Math.random() * 20) + 80;
+          document.getElementById('meterFill').style.width = newVibe + '%';
+          document.getElementById('vibePercent').innerText = newVibe + '%';
+        }
+      }, 15);
+    }
+
+    /* ------------------------------------------------------------------------
+       7. WEB AUDIO API SYNTHESIZER (LIGHTSABER & BEEP SFX)
+       ------------------------------------------------------------------------ */
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    let audioCtx;
+
+    function initAudio() {
+      if (!audioCtx) {
+        audioCtx = new AudioContext();
+      }
+    }
+
+    // Play synthesized lightsaber ignition sound
+    function playSaberSound() {
+      initAudio();
+      if (!audioCtx) return;
+
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+
+      osc.type = 'sawtooth';
+      
+      // Pitch ramp up to simulate lightsaber turning on
+      osc.frequency.setValueAtTime(60, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(220, audioCtx.currentTime + 0.15);
+      osc.frequency.exponentialRampToValueAtTime(110, audioCtx.currentTime + 0.3);
+
+      gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.35);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.35);
+    }
+
+    // Play synthesized astromech beep sound
+    function playBeepSound() {
+      initAudio();
+      if (!audioCtx) return;
+
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(800 + Math.random() * 600, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(400 + Math.random() * 800, audioCtx.currentTime + 0.1);
+
+      gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.15);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.15);
+    }
+  </script>
 </body>
 </html>
